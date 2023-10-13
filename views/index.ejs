@@ -1,0 +1,1388 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style type="text/css">
+    @charset "UTF-8";
+
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak,
+    .ng-hide:not(.ng-hide-animate) {
+      display: none !important;
+    }
+
+    ng\:form {
+      display: block;
+    }
+
+    .ng-animate-shim {
+      visibility: hidden;
+    }
+
+    .ng-anchor {
+      position: absolute;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.87.0">
+  <!-- ngIf: !title -->
+  <!-- ngIf: title -->
+  <title ng-if="title" class="ng-binding ng-scope">UzAuto - orderInfo page</title><!-- end ngIf: title -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+    rel="stylesheet">
+  <style type="text/css">
+    news {}
+
+    news .filter_line,
+    [data-is="news"] .filter_line {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      border-bottom: 1px solid #dee1e3;
+    }
+
+    news .filter_line_year,
+    [data-is="news"] .filter_line_year {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    news .filter_item,
+    [data-is="news"] .filter_item {
+      color: #001e50;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    news .filter_item:hover,
+    [data-is="news"] .filter_item:hover {
+      color: #0040c5;
+    }
+
+    news .filter_line .selected,
+    [data-is="news"] .filter_line .selected {
+      border-bottom: 2px solid #001e50;
+    }
+
+    news .filter_item_year,
+    [data-is="news"] .filter_item_year {
+      margin-right: 20px;
+      padding: 17px 15px;
+    }
+
+    news .filter_item_year_font,
+    [data-is="news"] .filter_item_year_font {
+      font-size: 24px;
+      font-family: var(--font-family-head);
+    }
+
+    news .filter_item_month,
+    [data-is="news"] .filter_item_month {
+      margin-right: 5px;
+      padding: 14px 10px;
+    }
+
+    news .filter_item_month_font,
+    [data-is="news"] .filter_item_month_font {
+      font-size: 17px;
+      font-family: var(--font-family-head);
+    }
+
+    news .cont,
+    [data-is="news"] .cont {}
+
+    news .news_container,
+    [data-is="news"] .news_container {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+    }
+
+    news .news_item,
+    [data-is="news"] .news_item {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+    }
+
+    news .news_item_image,
+    [data-is="news"] .news_item_image {}
+
+    news .news_item_card,
+    [data-is="news"] .news_item_card {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+
+    news .news_item_publish,
+    [data-is="news"] .news_item_publish {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    news .news_item_title,
+    [data-is="news"] .news_item_title {
+      font-weight: 700;
+      font-size: 42px;
+    }
+
+    news .news_item_readmore,
+    [data-is="news"] .news_item_readmore {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    news .news_item_readmore:hover,
+    [data-is="news"] .news_item_readmore:hover {}
+
+    news .news_item_readmore_arrow,
+    [data-is="news"] .news_item_readmore_arrow {
+      width: 16px;
+      height: 15px;
+    }
+
+    news .news_item_readmore_link,
+    [data-is="news"] .news_item_readmore_link {
+      color: #001e50;
+      text-decoration: none;
+    }
+
+    news .news_item_readmore_link:hover,
+    [data-is="news"] .news_item_readmore_link:hover {
+      color: #0040c5;
+      text-decoration: none;
+    }
+
+    news .news_item_readmore_link,
+    [data-is="news"] .news_item_readmore_link {
+      margin-bottom: 20px;
+    }
+
+    news_single .news_single_item,
+    [data-is="news_single"] .news_single_item {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    news_single .news_single_title,
+    [data-is="news_single"] .news_single_title {
+      margin-bottom: 50px;
+    }
+
+    news_single .news_single_title_font,
+    [data-is="news_single"] .news_single_title_font {
+      font-size: 60px;
+      font-family: var(--font-family-head);
+    }
+
+    news_single .news_single_date,
+    [data-is="news_single"] .news_single_date {
+      margin-bottom: 20px;
+    }
+
+    news_single .news_single_date_font,
+    [data-is="news_single"] .news_single_date_font {
+      font-size: 20px;
+      font-family: var(--font-family-head);
+    }
+
+    news_single .news_single_text_font,
+    [data-is="news_single"] .news_single_text_font {
+      font-size: 16px;
+      font-family: var(--font-family-text);
+    }
+
+    @media only screen and (max-width: 767px) {
+
+      news_single .news_single_title,
+      [data-is="news_single"] .news_single_title {
+        margin-bottom: 40px;
+      }
+
+      news_single .news_single_title_font,
+      [data-is="news_single"] .news_single_title_font {
+        font-size: 32px;
+      }
+
+      news_single .news_single_date_font,
+      [data-is="news_single"] .news_single_date_font {
+        font-size: 16px;
+      }
+    }
+
+    .b-head-lines {
+      top: 0;
+      z-index: 10000;
+      position: fixed;
+      width: 100%;
+    }
+
+    .b-head-line {
+      background-color: #A2228D;
+      width: 12.5%;
+      height: 1px;
+      float: left;
+    }
+
+    #report-content {
+      height: 100%;
+      width: 100%;
+      background-color: #fcfcfc;
+    }
+
+    .report-brand {
+      padding: 3px;
+      color: #c7c5d8;
+    }
+
+    #report-sheets {
+      padding: 0;
+    }
+
+    @media screen {
+      .bsr-pb {
+        visibility: hidden;
+      }
+
+      .bsr-trans {
+        cursor: pointer;
+        color: #1a0dab !important;
+      }
+
+      .bsr-trans:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @media print {
+      #report-header {
+        display: none;
+      }
+
+      #report-sheets {
+        display: none;
+      }
+
+      #cell-menu {
+        display: none !important;
+      }
+    }
+
+    pm {
+      display: none;
+    }
+
+    menu-ids {
+      display: none;
+    }
+
+    .bsr-table {
+      margin: auto;
+      color: black;
+      border-collapse: collapse;
+    }
+
+    .bsr-table td {
+      padding: 2px;
+    }
+
+    .bsr-0 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-1 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      background-color: #D5D5D5;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+
+    .bsr-2 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      background-color: #EAEAEA;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+
+    .bsr-3 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      word-wrap: break-word;
+      text-align: left;
+      vertical-align: top;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+
+    .bsr-4 {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .bsr-5 {
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .bsr-6 {
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+
+    .bsr-7 {
+      white-space: nowrap;
+      text-align: left;
+    }
+
+    .bsr-8 {
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .bsr-9 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-10 {
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    .bsr-11 {
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .bsr-12 {
+      white-space: nowrap;
+      vertical-align: bottom;
+    }
+
+    .bsr-13 {
+      white-space: nowrap;
+    }
+
+    .bsr-14 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-15 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-16 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-17 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-18 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-19 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-20 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-21 {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .bsr-21>div {
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      display: block;
+      height: 41px;
+      width: 146px;
+      margin-left: -54.5px;
+      margin-bottom: 54.5px;
+    }
+
+    .bsr-22 {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .bsr-22>div {
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      display: block;
+      height: 41px;
+      width: 146px;
+      margin-right: -54.5px;
+      margin-top: 54.5px;
+    }
+
+    .bsr-23 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-24 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 9pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-25 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 20pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-26 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      font-weight: bold;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .bsr-27 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      font-weight: bold;
+      font-style: italic;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+
+    .bsr-28 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .bsr-29 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      font-weight: bold;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .bsr-30 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      font-style: italic;
+      word-wrap: break-word;
+      text-align: left;
+      vertical-align: top;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+
+    .b-head-lines {
+      top: 0;
+      z-index: 10000;
+      position: fixed;
+      width: 100%;
+    }
+
+    .b-head-line {
+      background-color: #A2228D;
+      width: 12.5%;
+      height: 1px;
+      float: left;
+    }
+
+    #report-content {
+      height: 100%;
+      width: 100%;
+      background-color: #fcfcfc;
+    }
+
+    .report-brand {
+      padding: 3px;
+      color: #c7c5d8;
+    }
+
+    #report-sheets {
+      padding: 0;
+    }
+
+    @media screen {
+      .bsr-pb {
+        visibility: hidden;
+      }
+
+      .bsr-trans {
+        cursor: pointer;
+        color: #1a0dab !important;
+      }
+
+      .bsr-trans:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @media print {
+      #report-header {
+        display: none;
+      }
+
+      #report-sheets {
+        display: none;
+      }
+
+      #cell-menu {
+        display: none !important;
+      }
+    }
+
+    pm {
+      display: none;
+    }
+
+    menu-ids {
+      display: none;
+    }
+
+    .bsr-table {
+      margin: auto;
+      color: black;
+      border-collapse: collapse;
+    }
+
+    .bsr-table td {
+      padding: 2px;
+    }
+
+    .bsr-0 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-1 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      background-color: #D5D5D5;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+
+    .bsr-2 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      background-color: #EAEAEA;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+
+    .bsr-3 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      word-wrap: break-word;
+      text-align: left;
+      vertical-align: top;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+
+    .bsr-4 {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .bsr-5 {
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .bsr-6 {
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+
+    .bsr-7 {
+      white-space: nowrap;
+      text-align: left;
+    }
+
+    .bsr-8 {
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .bsr-9 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-10 {
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    .bsr-11 {
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .bsr-12 {
+      white-space: nowrap;
+      vertical-align: bottom;
+    }
+
+    .bsr-13 {
+      white-space: nowrap;
+    }
+
+    .bsr-14 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-15 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-16 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-17 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-18 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-19 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-20 {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .bsr-21 {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .bsr-21>div {
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      display: block;
+      height: 41px;
+      width: 146px;
+      margin-left: -54.5px;
+      margin-bottom: 54.5px;
+    }
+
+    .bsr-22 {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .bsr-22>div {
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      display: block;
+      height: 41px;
+      width: 146px;
+      margin-right: -54.5px;
+      margin-top: 54.5px;
+    }
+
+    .bsr-23 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-24 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 9pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-25 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 20pt;
+      word-wrap: break-word;
+      vertical-align: top;
+    }
+
+    .bsr-26 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      font-weight: bold;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .bsr-27 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      font-weight: bold;
+      font-style: italic;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+
+    .bsr-28 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .bsr-29 {
+      color: #0C0C0C;
+      font-family: Arial;
+      font-size: 10pt;
+      font-weight: bold;
+      word-wrap: break-word;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .bsr-30 {
+      color: #0C0C0C;
+      font-family: sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      font-style: italic;
+      word-wrap: break-word;
+      text-align: left;
+      vertical-align: top;
+      border-top: 1px solid #7F7F7F;
+      border-bottom: 1px solid #7F7F7F;
+      border-left: 1px solid #7F7F7F;
+      border-right: 1px solid #7F7F7F;
+    }
+  </style>
+
+  <!-- Bootstrap Setup -->
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://itchief.ru/examples/libs/ui-components/itc-slider/itc-slider.css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link href="resources/css/app.css?_=now" rel="stylesheet" type="text/css">
+</head>
+
+<body ng-controller="uzavtoCtrl" block-ui="main" class="ng-scope block-ui block-ui-anim-fade" aria-busy="false"
+  data-new-gr-c-s-check-loaded="14.1131.0" data-gr-ext-installed="">
+  <!-- ngIf: a.ctrlReady -->
+  <div class="container ng-scope" ng-if="a.ctrlReady">
+
+    <main>
+      <!-- uiView: -->
+      <ui-view class="ng-scope">
+        <style class="ng-scope">
+          header {
+            display: none !important;
+          }
+
+          footer {
+            display: none !important;
+          }
+        </style>
+
+        <div class="form-container contract ng-scope">
+          <order_info>
+
+            <div id="report-header" class="sticky-top">
+              <div class="b-head-lines">
+                <div class="b-head-line" style="background-color: #A2228D;"></div>
+                <div class="b-head-line" style="background-color: #525096;"></div>
+                <div class="b-head-line" style="background-color: #0095D9;"></div>
+                <div class="b-head-line" style="background-color: #8ED8F8;"></div>
+                <div class="b-head-line" style="background-color: #A7CE3A;"></div>
+                <div class="b-head-line" style="background-color: #D2E388;"></div>
+                <div class="b-head-line" style="background-color: #FFCA00;"></div>
+                <div class="b-head-line" style="background-color: #ED7822;"></div>
+              </div>
+            </div>
+            <div class="container-fluid" id="report-content">
+              <div class="row">
+                <table cellspacing="0" cellpadding="0" class="bsr-table">
+                  <colgroup>
+                    <col width="16">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="30">
+                    <col width="23">
+                    <col width="30">
+                    <col width="30">
+                  </colgroup>
+                  <tbody>
+                    <tr style="height:18px;">
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                      <td class="bsr-26">&nbsp;</td>
+                    </tr>
+                    <tr style="height:19px;">
+                      <td class="bsr-27" colspan="24">Диққат !</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-27" colspan="24">Автотранспорт воситаси (тиркама) сотиб
+                        олинган кундан бошлаб 10 кун ичида ДЙҲХХ бўлимларида рўйхатга олиниши
+                        шарт</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+
+
+                      <td class="bsr-28" rowspan="4" colspan="12"><img src="/images/motors-logo.jpg"
+                          style="position:relative;width:240px;height:80px;"></td>
+                      <td class="bsr-28" rowspan="6" colspan="12"><img style="position:relative;"
+                          src="/images/qr-code.jpg">
+                      </td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-29" colspan="12">AAE0259031</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-1" colspan="24">Хисоб маълумотнома</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Хисоб маълумотнома Серияси</td>
+                      <td class="bsr-3" colspan="12">AAE</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Хисоб маълумотнома №</td>
+                      <td class="bsr-3" colspan="12">0259031</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Мижоз тури (Юр. Жис)</td>
+                      <td class="bsr-3" colspan="12">Физ лицо</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Автомобил эгаси</td>
+                      <td class="bsr-3" colspan="12">USMANOVA GOZAL ABDULRASULOVNA</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                      <td class="bsr-30" colspan="12">Мижоз Паспорт серияси ва раками</td>
+                      <td class="bsr-3" colspan="12">AA5775963</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+
+
+                    <tr>
+                      <td class="bsr-30" colspan="12">Пасспорт берилган жойи</td>
+                      <td class="bsr-3" colspan="12">TOSHKENT SHAHAR UCHTEPA TUMANI IIB</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                      <td class="bsr-30" colspan="12">Мижоз ЖШИР
+                        (ПИНФЛ)</td>
+                      <td class="bsr-3" colspan="12">42812776500042</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Мижоз
+                        ИНН</td>
+                      <td class="bsr-3" colspan="12"></td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Мижоз манзили</td>
+                      <td class="bsr-3" colspan="12">UCHTEPA TUMANI 3-GULISTON 15</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Реализация санаси</td>
+                      <td class="bsr-3" colspan="12">14.10.2023 10:26:56</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Автомобил русуми</td>
+                      <td class="bsr-3" colspan="12">COBALT</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Автомобил модели</td>
+                      <td class="bsr-3" colspan="12">GX-STYLE AT PLUS</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Двигитель №</td>
+                      <td class="bsr-3" colspan="12">B15D213232512MTAX0246</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Кузов №</td>
+                      <td class="bsr-3" colspan="12">XWBJA69VEPA137658</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Ранг номи</td>
+                      <td class="bsr-3" colspan="12">Summit White</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Автомобил ранги коди</td>
+                      <td class="bsr-3" colspan="12">GAZ</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Цена</td>
+                      <td class="bsr-3" colspan="12">134294000</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+
+
+                      <td class="bsr-30" colspan="12">Сотувчи ташкилотининг номи</td>
+                      <td class="bsr-3" colspan="12">ООО "УЧТЕПА АВТОСАВДО"</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Сотувчи ташкилотининг манзили</td>
+                      <td class="bsr-3" colspan="12">г. Ташкент, Учтепинский р-н, Чиланзар - 31,
+                        ул. Гулистон, 8 в</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Дилер рахбари</td>
+                      <td class="bsr-3" colspan="12">Пулатов Дилшод Халилович</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Тўла вазни</td>
+                      <td class="bsr-3" colspan="12">1760 kg.</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Юксиз вазни</td>
+                      <td class="bsr-3" colspan="12">1265 kg.</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">Ишончнома</td>
+                      <td class="bsr-3" colspan="12"></td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="bsr-30" colspan="12">От кучи</td>
+                      <td class="bsr-3" colspan="12">106</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr style="height:40px;">
+                      <td class="bsr-27" colspan="24">Хисоб маълумотнома хақиқийлигини текшириш
+                        учун юқоридаги QR кодни сканер қилинг</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </order_info>
+        </div>
+      </ui-view>
+    </main>
+
+    <footer>
+      <div class="footer-bg-1">
+        <div class="row align-items-center py-3">
+          <div class="col-24 col-sm-14">
+            <h5>
+              <t>Контакты</t>
+            </h5>
+            <ul class="list-unstyled text-small d-md-flex mb-0">
+              <li class="mb-1 me-2 pe-2 med-border border-secondary"><a
+                  class=" d-flex align-items-center link-secondary text-decoration-none" href="tel:+998711417777">
+                  <i class="fa fa-phone"></i>&nbsp;
+                  <span>+998 78 141 77 77</span>
+                </a></li>
+              <li class="mb-1 me-2 pe-2 med-border border-secondary"><a
+                  class=" d-flex align-items-center link-secondary text-decoration-none"
+                  href="mailto:info@uzautomotors.com">
+                  <i class="fa fa-at"></i>&nbsp;
+                  <span>info@uzautomotors.com</span>
+                </a></li>
+              <li class="mb-1 me-3"><a class=" d-flex align-items-center link-secondary text-decoration-none" href="">
+                  <i class="fa fa-city"></i>&nbsp;
+                  <span>
+                    <t>Андижанская область., г.Асака, ул. Хумо, дом 81</t>
+                  </span>
+                </a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="download">
+              <a href="https://t.me/uzautosanoat_bot" target="_telegram">
+                <img alt="telegram BOT UzAvto" src="resources/img/telegram.png">
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=uzavtosanoat.uz" target="_android">
+                <img alt="Get it on Google Play" src="resources/img/google-play-badge.png">
+              </a>
+              <a href="https://itunes.apple.com/ru/app/uzavto/id1438093426" target="_ios">
+                <img alt="Download on the App Store" src="resources/img/app-store-badge.png">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bg-2 py-2 about">
+        <a href="http://www.uzavtosanoat.uz/" target="_uzavto">©1996-2023 AO «UZAUTO MOTORS»</a><br>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
